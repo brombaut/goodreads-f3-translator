@@ -35,4 +35,6 @@ jobs:
       - name: Run goodreads_translator.py
         run: python goodreads_translator.py
       - name: Run F3 Syncer
-        run: npm run start
+        run: |
+          npm run build
+          npm run start
