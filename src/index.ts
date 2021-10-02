@@ -22,14 +22,25 @@ interface GRBook {
 }
 
 async function main() {
+  console.log("Starting Sync");
+  console.log("Init F3Bookshelf");
   const f3: F3Bookshelf = await new F3Bookshelf(firebaseConfig).init();
+  console.log("Reading translated goodreads book file");
   const booksFromGoodreads: GRBook[] = readTranslatedBooksFile();
+  console.log("Fetching existing F3 books");
   const f3Books: Book[] = await fetchF3Books(f3);
+  console.log("Syncing existing F3 books");
   const existingF3Books = syncExistingF3Books(f3Books, booksFromGoodreads);
+  console.log("Updating F3 with synced books");
   await updateF3WithSyncedBooks(f3, existingF3Books);
+  console.log("Creating new F3 books");
   const newF3Books = createNewF3Books(f3Books, booksFromGoodreads)
+  console.log("Updating F3 with added books");
   await addNewBooksToF3(f3, newF3Books);
+  console.log("Closing F3 Connection");
   await f3.closeConnection();
+  console.log("Done");
+
 }
 
 function readTranslatedBooksFile() {
