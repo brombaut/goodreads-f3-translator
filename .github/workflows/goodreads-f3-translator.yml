@@ -16,4 +16,5 @@ jobs:
       - uses: BSFishy/pip-action@v1
         with:
           requirements: requirements.txt
-      - run: echo DONE
+      - run: npm ci
+      - run: python goodreads_translator.py
