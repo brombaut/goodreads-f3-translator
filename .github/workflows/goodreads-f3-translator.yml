@@ -16,5 +16,21 @@ jobs:
       - uses: BSFishy/pip-action@v1
         with:
           requirements: requirements.txt
-      - run: npm ci
-      - run: python goodreads_translator.py
+      - name: Create .env file
+        run: |
+          touch .env
+          echo GOODREADS_ID=${{ secrets.GOODREADS_ID }} >> .env
+          echo GOODREADS_KEY=${{ secrets.GOODREADS_KEY }} >> .env
+          echo API_KEY=${{ secrets.API_KEY }} >> .env
+          echo AUTH_DOMAIN=${{ secrets.AUTH_DOMAIN }} >> .env
+          echo PROJECT_ID=${{ secrets.PROJECT_ID }} >> .env
+          echo STORAGE_BUCKET=${{ secrets.STORAGE_BUCKET }} >> .env
+          echo MESSAGING_SENDER_ID=${{ secrets.MESSAGING_SENDER_ID }} >> .env
+          echo APP_ID=${{ secrets.APP_ID }} >> .env
+          echo MEASUREMENT_ID=${{ secrets.MEASUREMENT_ID }} >> .env
+          echo TEST_USER_EMAIL=${{ secrets.TEST_USER_EMAIL }} >> .env
+          echo TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }} >> .env
+      - name: NPM Clean Install
+        run: npm ci
+      - name: Run goodreads_translator.py
+        run: python goodreads_translator.py
