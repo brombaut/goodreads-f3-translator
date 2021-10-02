@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/node,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,python
 
+gr_response.*
+
 ### Node ###
 # Logs
 logs
@@ -263,3 +265,5 @@ dmypy.json
 cython_debug/
 
 # End of https://www.toptal.com/developers/gitignore/api/node,python
+
+.idea/

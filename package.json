@@ -1,0 +1,24 @@
+{
+  "name": "goodreads_translator_to_firebase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf ./build && tsc",
+    "start": "npm run build && node build/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^15.12.2",
+    "@types/node-fetch": "^2.5.10",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "@brombaut/types": "^0.2.0",
+    "dotenv": "^8.6.0",
+    "node-fetch": "^2.6.1"
+  }
+}
