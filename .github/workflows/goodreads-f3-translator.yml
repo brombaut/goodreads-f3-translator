@@ -2,7 +2,7 @@ name: Translate Goodreads to F3
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron: "14 7-23 * * *"
+    - cron: "14 0,1,2,3,11-23 * * *"
   workflow_dispatch:
 
 jobs:
